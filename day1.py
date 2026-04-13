@@ -76,3 +76,4 @@ print(type(my_range_var))
 my_none_var = None
 print('None:', my_none_var)
 print(type(my_none_var))
+
