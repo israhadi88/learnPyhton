@@ -15,4 +15,10 @@ for i in range(jumlah_orang):
     print('---------------------------------')
 
 print(f'\n Total data valid yang dimasukkan {len(daftar_umur)}')
-print(f'Daftar umur: {daftar_umur}')
+print(f'Daftar umur: {daftar_umur}')    
+
+isCitizen = input('Masukkan citizenship anda:')
+age = int(input('Masukkan umur anda:'))
+
+if isCitizen == 'Indonesia' and age >=25:
+    print(f'kamu adalah warga: {isCitizen} yang cukup umur \nKamu berhak memilih')
