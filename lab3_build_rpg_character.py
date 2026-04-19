@@ -27,3 +27,8 @@ def create_character(name,strength, intelligence,charisma):
     # Return formatted string
     return f"{name}\nSTR {stat_bar(strength)}\nINT {stat_bar(intelligence)}\nCHA {stat_bar(charisma)}"
 print(create_character('ren',3,3,1))
+
+def greet():
+    pass
+    
+print(greet()) # ?
