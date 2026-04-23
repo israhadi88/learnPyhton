@@ -33,3 +33,39 @@ print(test)
 desserts = ['Cake', 'Cookies', 'Ice Cream', 'Pie', 'Brownies']
 print(desserts[1:3]) #akses index list using slicing | []'Cookies','Ice Cream']
 
+#Common method used for list
+
+#1. .append() used to add an item to the end of list
+app_list = [1,2,3,4,5]
+app_list.append(6) #ini menambahkan di akhir list dengan append
+print(app_list)
+
+#bisa nenambahkan list juga di dalam list
+app_list2 = [1,3,5,7]
+evenNumber = ([2,4,6,8])
+app_list2.append(evenNumber)
+print(app_list2)#[1, 3, 5, 7, [2, 4, 6, 8]]
+
+#bisa juga nambahin list tanpa harus gabung dalam list
+ext_list = [1,2,3,5]
+extend = [2,4,6]
+ext_list.extend(extend)
+print(ext_list) #[1, 3, 5, 2, 4, 6] tapi tetap gaberurutan dan ada double counting
+
+#pakai insert() kalo mau nambahin sesuai index
+inst_list = [1, 2, 3, 5]
+inst_list.insert(3,4)
+print(inst_list) #3 indextnya 4valuenya (masukkan 4 pada list ini di index ke-3)
+
+#pakai remove() untuk menghapus value yang diinginkan, tapi cuma value yang paling depan dan
+#gak semua value yang sama
+rmv_list = [1,2,3,4,5,5,6,6,6,]
+rmv_list.remove(5)
+print(rmv_list)
+
+#pakai pop() untuk menghapus semua value berdasarkan index
+pop_list = [1,2,3,4,5,6,7,7,7,7,8]
+pop_list.pop(3) #menghapus index 3 = 4
+print(pop_list)
+
+

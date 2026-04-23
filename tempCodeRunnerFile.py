@@ -1,5 +1,3 @@
-developer = ['Brodo', 34, 'Rust Developer']
-name, *test = developer #unpacking value of list, pake asterik jika ingin semuanya
-
-print(name)
-print(test)
+pop_list = [1,2,3,4,5,6,7,7,7,7,8]
+pop_list.pop(3)
+print(pop_list)
