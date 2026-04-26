@@ -97,3 +97,8 @@ rere = [1,2,3]
 rere.reverse()
 print(rere) #[3, 2, 1]
 
+
+#Tuple (immutable)
+tutu = (1,2,3,4)
+print(tutu,type(tutu))
+tutu[2] = 5
