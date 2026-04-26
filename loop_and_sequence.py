@@ -123,3 +123,32 @@ number = (1,3,5,2,1,5,7,1,3,5,7,9,8,8,3,10)
 print(number)
 print(sorted(number))
 print(sorted(number, reverse=True))
+
+#Loop 
+
+numbers = [1,2,3,4,5,6,7]
+for i in numbers:
+    print(i)
+
+categories = ['Fruit', 'Vegetable']
+foods = ['Apple', 'Carrot', 'Banana']
+for category in categories:
+    for food in foods:
+        print(category,food)
+
+
+#While 
+secretNumber = 2
+guess = 0
+while guess != secretNumber:
+    guess = int(input('Silahkan tebak nomor antara 1-5: '))
+    if guess != secretNumber:
+        print('Salah! Coba lagi')
+print('Benar')
+
+#break n continue in iteration
+nameDev = ['Hori','Mahu','Kyoro']
+for name in nameDev:
+    if name == 'Kyoro':
+        break
+    print(name)
