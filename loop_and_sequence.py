@@ -101,4 +101,25 @@ print(rere) #[3, 2, 1]
 #Tuple (immutable)
 tutu = (1,2,3,4)
 print(tutu,type(tutu))
-tutu[2] = 5
+del tutu[2]
+
+#common methods in tuple
+
+#count() hitung jumlah value dalam tuple
+countTuple = (1,2,3,4,5,2,2,2)
+x = countTuple.count(2) #ini menghitung, isi argument dengan value yang dicari
+print(x) 
+
+#index()
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust')
+x = programming_languages.index('Java') # 1
+print(x)
+
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
+x = programming_languages.index('Python', 3)# 5, karena pada argumen diisi 3(mulai)
+print(x)
+
+number = (1,3,5,2,1,5,7,1,3,5,7,9,8,8,3,10)
+print(number)
+print(sorted(number))
+print(sorted(number, reverse=True))
