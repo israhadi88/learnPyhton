@@ -68,4 +68,32 @@ pop_list = [1,2,3,4,5,6,7,7,7,7,8]
 pop_list.pop(3) #menghapus index 3 = 4
 print(pop_list)
 
+pop_list2 = [1,2,3,4,5,6,7,7,7,7,8]
+pop_list2.pop() #menghapus index terakhir
+print(pop_list2)
+
+#gunakan clear() jika ingin mengosongkan list
+clr_list = [1,2,3,4,5,6]
+clr_list.clear()
+print(clr_list) # ilang []
+
+#gunakan sort() untuk mengurutkan value dalam list
+sort_list = [1,3,2,5,4,6,7,9,8]
+print(sort_list) #list seadanya sesuai yang di declare
+sort_list.sort()
+print(sort_list) #sudah di sorting ascending
+sort_list.sort(reverse=True)
+print(sort_list) #ini sorting descending
+
+#gunakan sorted() untuk sorting di list baru, bisa pakai reverse juga
+soso = [2,3,1,4,7,6,9,8]
+sorted_list = sorted(soso)
+print(sorted_list)
+sorted_list = sorted(soso, reverse=True)
+print(sorted_list)
+
+#reverse() juga bisa dipakai sendiri buat membalikkan value
+rere = [1,2,3]
+rere.reverse()
+print(rere) #[3, 2, 1]
 
