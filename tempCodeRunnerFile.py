@@ -1,5 +1,5 @@
-nameDev = ['Hori','Mahu','Kyoro']
-for name in nameDev:
-    if name == 'Kyoro':
-        break
-    print(name)
+languages = ['Spanish','English','Indonesia','Chinese']
+x = dict(enumerate(languages))
+for index, language in enumerate(languages):
+    print(f'index {index} and language {language}')
+print(x,type(x))

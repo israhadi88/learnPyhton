@@ -147,8 +147,69 @@ while guess != secretNumber:
 print('Benar')
 
 #break n continue in iteration
-nameDev = ['Hori','Mahu','Kyoro']
+
+#break
+nameDev = ['Hori','Kyoro','Mahu']
 for name in nameDev:
     if name == 'Kyoro':
-        break
-    print(name)
+        break #break kalo ketemu kyoro, kyoro kebelakang gak ikut print
+    print(name) #Hori
+
+#continue
+nameDev = ['Hori','Kyoro','Mahu']
+for name in nameDev:
+    if name == 'Kyoro':
+        continue #continue kalo ketemu kyoro, hanya kyoro gak ikut print
+    print(name) #Hori, Mahu
+
+
+#nested loop with break
+words = ['sky', 'apple', 'rhythm', 'fly', 'orange']
+for word in words: #loop list words
+    for letter in 'aiueo': #loop letter in 'aiueo'
+        if letter in word: #condition jika word ketemu letter(aiueo)
+            print(f'"{word}" contains the vowel "{letter}"') #print kalo ada aiueo
+            break #kalo udah ketemu break, lanjut ke words lain
+    else:
+        print(f'{word} has no vowel') #print kalo gak ada
+
+#nested loop
+words = ['sky', 'apple', 'rhythm', 'fly', 'orange']
+for word in words:
+    ada_vokal = False # Ini penandanya
+    
+    for letter in word:
+        if letter in 'aeiou':
+            print(f"'{word}' contains the vowel '{letter}'")
+            ada_vokal = True # Tandai kalau kita sudah nemu minimal satu
+            
+    if not ada_vokal:
+        print(f"'{word}' has no vowels")
+
+#range(start, stop, step)
+for num in range(10): #tanpa start dan step, hanya stop
+    print(num)#0-9
+
+for num in range(1, 10): #tanpa step
+    print(num) #1-10
+
+for num in range(2,11,2): #start 2, stop 11, step 2
+    print(num)#2,4,6,8,10
+
+for num in range(40, 0, -5):
+    print(num)
+
+#ENUM()
+#ini dijalankan tanpa enum()
+languages = ['Spanish','English','Indonesia','Chinese']
+index = 0
+for language in languages:
+    print(f'Index {index} and language {language}')
+    index += 1
+
+#using enum()
+languages = ['Spanish','English','Indonesia','Chinese']
+x = dict(enumerate(languages))
+for index, language in enumerate(languages):
+    print(f'index {index} and language {language}')
+print(x,type(x))
