@@ -211,5 +211,65 @@ for language in languages:
 languages = ['Spanish','English','Indonesia','Chinese']
 x = dict(enumerate(languages))
 for index, language in enumerate(languages):
-    print(f'index {index} and language {language}')
+    if index >0:
+        print(f'index {index} and language {language}')
+print(x)
+
+#zip() mengkombinasikan 2 value menjadi pasangan
+languages = ['Spanish','English','Indonesia','Chinese']
+ids = [1,2,3,4]
+
+x = dict(zip(languages,ids))
 print(x,type(x))
+
+languages = ['Spanish','English','Indonesia','Chinese']
+ids = [1,2,3,4]
+for language, id in zip(languages,ids):
+    print(f'Bahasa: {language}')
+    print(f'No ID: {id}')
+
+
+#tanpa list comprehension
+
+evennumber = []
+for num in range(51):
+    if num % 2 == 0 and num > 0:
+        evennumber.append(num)
+print(evennumber)
+
+
+def odd(x):
+    hasil = []
+    for num in range(x+1):
+        if num % 2 != 0:
+            hasil.append(num)
+    return hasil
+print(odd(20))
+
+def odd(x):
+    hasil = []
+    for num in range(x):
+        if num % 2 != 0:
+            hasil.append(num)
+    return hasil
+print(odd(21))
+
+#dengan list comprehension
+def even(x):
+    hasil = [num for num in range(1,x+1) if num %2 == 0 and num>0]
+    return hasil
+print(even(12))
+
+def tandai(n):
+    numbers = range(1,n+1)
+    return[(num,'Even') if num % 2 ==0 else (num,'Odd')for num in numbers]
+
+print(tandai(10))
+
+def pengelompokan(n):
+    numbers = range(1,n+1)
+    even_list = [num for num in numbers if num % 2 == 0]
+    odd_list = [num for num in numbers if num % 2 != 0]
+    print(f'odd: {odd_list}')
+    print(f'even: {even_list}')
+pengelompokan(6)
