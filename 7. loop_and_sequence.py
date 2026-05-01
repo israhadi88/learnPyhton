@@ -273,3 +273,55 @@ def pengelompokan(n):
     print(f'odd: {odd_list}')
     print(f'even: {even_list}')
 pengelompokan(6)
+
+#filter("function",iterable)
+words = ['israhadi','sky','book','bag','accecories']
+def is_long_word(word):
+    return len(word) > 4
+
+long_words = list(filter(is_long_word,words))
+print(long_words)
+
+celcius = [2,10,28,45]
+
+#map
+def to_fahrenheit(temp):
+    return (temp * 9/5) + 32
+
+fahrenheit = list(map(to_fahrenheit, celcius))
+
+# Mengubah setiap angka menjadi string dengan format 2 desimal
+hasil_format = [f"{x:.2f}" for x in fahrenheit]
+
+print(hasil_format) # Output: ['35.60', '50.00', '82.40', '113.00']
+
+#sum()
+angka = [2,3,4,6]
+tes = sum(angka) #summary
+print(tes) #15
+
+numbers = [5, 10, 15, 20]
+total = sum(numbers, 10) # positional argument
+print(total) # 60
+
+
+#lambda inline function tanpa nama
+#tanpa lambda
+numbers = [1,2,3,4,5]
+def odd(angka):
+    return angka%2==0
+event_numbers = list(filter(odd,numbers))
+print(event_numbers)
+
+#dengan lambda
+numbers = [1,2,3,4,5]
+event_numbers = list(filter(lambda x: x%2 ==0,numbers))
+print(event_numbers)
+
+
+numbers = [1,2,3,4,5]
+def square(num):
+    return num**2
+
+squared_number = list(map(square,numbers))
+print(squared_number)

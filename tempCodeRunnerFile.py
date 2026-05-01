@@ -1,7 +1,6 @@
-def pengelompokan(n):
-    numbers = range(1,n+1)
-    even_list = [num for num in numbers if num % 2 == 0]
-    odd_list = [num for num in numbers if num % 2 != 0]
-    print(f'odd: {odd_list}')
-    print(f'even: {even_list}')
-pengelompokan(6)
+numbers = [1,2,3,4,5]
+def square(num):
+    return num**2
+
+squared_number = list(map(square,numbers))
+print(squared_number)
