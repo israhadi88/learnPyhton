@@ -89,3 +89,9 @@ print(my_set|your_set)
 
 print(copy_my_set.issubset(my_set))
 print(copy_my_set.issuperset(my_set))
+
+
+my_set = {1, 2, 3, 4, 5, 6}
+my_set.add(5)
+
+print(my_set)
