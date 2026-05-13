@@ -48,7 +48,10 @@ print(divider(4, 2))
 # Exception handling is the process of catching and managing errors that occur
 # during the execution of a program, so your code doesn't crash unexpectedly.
 
-try:
+#python menyediakan try, except, else, dan finally buat handle error
+
+try: #try block kode yang di antisipasi bakalan ngasih error
     x = 10 / 0
-except ZeroDivisionError:
-    print('You cant divide by zero!')
+except ZeroDivisionError: #kode blok yang bakal running kalo ada error, disini pembagian dengan nol
+    print("You cant divide by zero!")
+
