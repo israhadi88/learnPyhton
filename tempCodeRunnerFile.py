@@ -1,4 +1,9 @@
+
+def calculate_square_root(number):
+    assert number >= 0, 'Cannot calculate square root of negative number'
+    return number ** 0.5
+
 try:
-    x = 10 / 0
-except ZeroDivisionError:
-    print('You cant divide by zero!')
+    result = calculate_square_root(-4)
+except AssertionError as e:
+    print(f'Assertion failed: {e}')
