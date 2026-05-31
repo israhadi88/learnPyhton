@@ -88,10 +88,50 @@ cart.add('Wireless mouse')
 cart.add('Ergo keyboard')
 cart.add('Monitor')
 
-for item in cart:
-   print(item, end=' '"\n") 
+#for item in cart:
+#   print(item, end=' '"\n") 
 
-cart.remove('Monitor')
-cart.remove("banana")
-for item in cart:
-   print(item, end=' '"\n") 
+#cart.remove('Monitor')
+#cart.remove("banana")
+#for item in cart:
+#   print(item, end=' '"\n") 
+
+atr_name = input('Enter yout attribute you want to see:')
+print(getattr(cart,atr_name, 'Attribute Not Found'))
+
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def desc(self):
+        return f"My name is {self.name} {self.age} years old"
+
+person_1 = Person('Israhadi',29)
+
+
+print(person_1.desc())
+print(getattr(person_1, 'Sex', 'Male')) #masukkan attribute name dan value jika tidak ada
+
+class Person: 
+    def __init__(self, name, age): 
+        self.name = name 
+        self.age = age 
+
+person = Person('John Doe', 30)
+
+att_name = input('Enter the attribute you want to see: ')
+print(getattr(person,att_name, "Attribute not found"))
+
+
+#using dir()
+class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+person = Person('John',31)
+
+for attr in dir (person):
+    if not attr.startswith('__') and not callable(getattr(person,attr)):
+        value = getattr(person,attr)
+        print(f"{attr}: {value}")

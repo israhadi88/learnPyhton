@@ -1,11 +1,11 @@
-class Dog:
-    def __init__(self,name, age):
+
+class Person:
+    def __init__(self,name,age):
         self.name = name
         self.age = age
+person = Person('John',31)
 
-    def bark(self):
-        print(f"{self.name.upper()}! says woof woof! I'm {self.age} years old")
-
-dog_1 = Dog("Jack",3)
-
-dog_1.bark()
+for attr in dir (person):
+    if not attr.startswith('__') and not callable(getattr(person,attr)):
+        value = getattr(person,attr)
+        print(f"{attr}: {value}")
