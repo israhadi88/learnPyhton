@@ -1,11 +1,18 @@
+class Configuration:
+    pass
 
-class Person:
-    def __init__(self,name,age):
-        self.name = name
-        self.age = age
-person = Person('John',31)
 
-for attr in dir (person):
-    if not attr.startswith('__') and not callable(getattr(person,attr)):
-        value = getattr(person,attr)
-        print(f"{attr}: {value}")
+setting_data = {
+    "server_url": "https://api.example.com",
+    "timeout_sec": 30,
+    "max_retries": 5,
+}
+
+config_obj = Configuration()
+
+for key,value in setting_data.items():
+    setattr(config_obj,key,value)
+
+print(config_obj.server_url) # https://api.example.com
+print(config_obj.timeout_sec)
+print(config_obj.max_retries)
