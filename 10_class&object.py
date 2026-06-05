@@ -216,9 +216,75 @@ setting_data = {
 
 config_obj = Configuration()
 
-for key,value in setting_data.items():
-    setattr(config_obj,key,value)
+for key, value in setting_data.items():
+    setattr(config_obj, key, value)
 
-print(config_obj.server_url) # https://api.example.com
+print(config_obj.server_url)  # https://api.example.com
 print(config_obj.timeout_sec)
 print(config_obj.max_retries)
+
+
+# hasattr() cek ada atau enggak attribute tsb, return false/true
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+
+product_a = Product("T-shirt", 25)
+
+required_attributes = ["name", "price", "inventory_id"]
+
+for attr in required_attributes:
+    if not hasattr(product_a, attr):
+        setattr(product_a, "inventory_id", 1)
+        print(
+            f"Attribute '{attr}' tidak ditemukan, menambahkan attribute '{attr}' dengan nilai {getattr(product_a,attr)}"
+        )
+    # elif not hasattr(product_a, attr):
+    #    setattr(product_a, 'inventory_id',1)
+    else:
+        print(f"{attr}: {getattr(product_a, attr)}")
+
+#delattr() buat remove attribute:
+
+class UserSession:
+    def __init__(self, user_id, token):
+        self.user_id = user_id
+        self.auth_token = token
+        self.temp_counter = 0
+
+session = UserSession(101,'a123d123d123')
+
+attribute_to_clean = ['auth_token', 'temp_counter']
+
+for attr in attribute_to_clean:
+    if hasattr(session,attr):
+        delattr(session,attr)
+        print(f"Attribute '{attr}' removed")
+print(f'\nfinal attribute remaining:')
+
+for attr in dir(session):
+    if not attr.startswith('__') and not callable(getattr(session,attr)):
+        print(f" - {attr}: {getattr(session,attr)}")
+
+
+class UserSession:
+    def __init__(self, user_id, token):
+        self.user_id = user_id
+        self.auth_token = token
+        self.temp_counter = 0
+
+session = UserSession(102,'a124451ksa')
+
+temp = ['auth_token','temp_counter']
+
+for attr in temp:
+    if hasattr(session,attr):
+        delattr(session,attr)
+        print(f"'{attr}' removed")
+print("\n Attribute remaining:")
+
+for attr in dir(session):
+    if not attr.startswith('__') and not callable(getattr(session,attr)):
+        print(f"- {attr}: {getattr(session,attr)}")
