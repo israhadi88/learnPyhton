@@ -137,13 +137,10 @@ print(person.city)  # give error
 
 
 # coba pake try-except
-
-
 class Person:
     def __init__(self, name, age):
         self.name = name
         self.age = age
-
 
 person = Person("Annie", 33)
 
