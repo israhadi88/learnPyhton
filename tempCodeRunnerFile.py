@@ -1,103 +1,54 @@
-class Category:
-    def __init__(self,name):
-        self.name = name
-        self.ledger = []
-   
-   #deposit method 
-    def deposit(self,amount, description=""):
-        self.ledger.append({"amount": amount, "description": description})
-    #withdrawl method
-    def withdraw(self,amount,description=""):
-       current_balance = sum(item["amount"] for item in self.ledger)
-       if amount <= current_balance:
-        self.ledger.append({"amount": -amount, "description": description})
-        return True
-       return False 
-    def transfer(self, amount, category_instance):
-        if self.withdraw(amount, f"Transfer to {category_instance.name}"):
-            category_instance.deposit(amount, f"Transfer from {self.name}")
-            return True
-        return False
-    #get_balance method
-    def get_balance(self):
-        total = 0
-        for item in self.ledger:
-            total += item["amount"]
-        return total
-    def check_funds(self, amount):
-        if amount > self.get_balance():
-            return False
-        return True
-    def __str__(self):
-        title = f"{self.name:*^30}\n"
-        items =""
-        for item in self.ledger:
-            desc = f"{item['description'][:23]:<23}"
-            amt = f"{item['amount']:>7.2f}"
-            items += f"{desc}{amt}\n"
-            
-        total = f"Total: {self.get_balance():.2f}"
-        
-        return title + items + total
-
-def create_spend_chart(categories):
-    spent_amounts = []
-    for category in categories:
-        spent = 0
-        for item in category.ledger:
-            if item["amount"] < 0:
-                spent += abs(item["amount"]) # abs() mengubah -20 menjadi 20
-        spent_amounts.append(spent)
+class Wallet:
+    def __init__(self, balance):
+        self._balance = balance
+        print(f"Dompet dibuat dengan saldo awal: Rp{self._balance}")
     
-    total_spent = sum(spent_amounts)
-    
-    percentages = []
-    for spent in spent_amounts:
-        if total_spent > 0:
-            percent = int((spent / total_spent * 100) / 10) * 10
+    def deposit(self, amount):
+        print(f"Mencoba deposit: Rp{amount}")
+        if amount > 0:
+            self._balance += amount
+            print(f"✅ Deposit berhasil! Saldo sekarang: Rp{self._balance}")
         else:
-            percent = 0
-        percentages.append(percent)
-    chart = "Percentage spent by category\n"
+            print(f"❌ Deposit gagal! Jumlah harus lebih dari 0")
     
-    for y_axis in range(100, -1, -10):
-        chart += f"{y_axis:>3}| "
-        
-        for percent in percentages:
-            if percent >= y_axis:
-                chart += "o  "
-            else:
-                chart += "   "
-        chart += "\n"
-
-    chart += "    " + "-" * (len(categories) * 3 + 1) + "\n"
-
-    max_len = max(len(category.name) for category in categories)
+    def withdraw(self, amount):
+        print(f"Mencoba withdraw: Rp{amount}")
+        if 0 < amount <= self._balance:
+            self._balance -= amount
+            print(f"✅ Withdraw berhasil! Saldo sekarang: Rp{self._balance}")
+        else:
+            print(f"❌ Withdraw gagal! Saldo tidak cukup atau jumlah tidak valid")
     
-    for i in range(max_len):
-        chart += "     " 
-        for category in categories:
-          
-            if i < len(category.name):
-                chart += f"{category.name[i]}  "
-            else:
-                chart += "   " 
-        if i < max_len - 1:
-            chart += "\n"
-            
-    return chart
-    
-food = Category("Food")
-food.deposit(1000, "initial deposit")
-food.withdraw(60, "groceries")
+    def cek_saldo(self):
+        print(f"Saldo saat ini: Rp{self._balance}")
+        return self._balance
 
-clothing = Category("Clothing")
-clothing.deposit(500, "initial deposit")
-clothing.withdraw(30, "baju")
+# ========== MENCOBA PROGRAM ==========
+print("="*40)
+print("MEMBUAT DOMPET BARU")
+dompet = Wallet(0)  # Saldo awal 1000
+print()
 
-auto = Category("Auto")
-auto.deposit(500, "initial deposit")
-auto.withdraw(10, "bensin")
+print("="*40)
+print("MENCoba DEPOSIT")
+dompet.deposit(500)    # Deposit 500
+print()
 
-# Panggil fungsi dengan memasukkan list berisi objek kategori
-print(create_spend_chart([food, clothing, auto]))
+print("="*40)
+print("MENCoba WITHDRAW")
+dompet.withdraw(300)   # Withdraw 300
+print()
+
+print("="*40)
+print("MENCoba WITHDRAW TERLALU BESAR")
+dompet.withdraw(2000)  # Coba withdraw 2000 (gagal)
+print()
+
+print("="*40)
+print("MENCoba DEPOSIT DENGAN NEGATIF")
+dompet.deposit(-100)   # Deposit negatif (gagal)
+print()
+
+print("="*40)
+print("CEK SALDO AKHIR")
+dompet.cek_saldo()
