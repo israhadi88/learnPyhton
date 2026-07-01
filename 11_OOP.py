@@ -165,3 +165,4 @@ try:
     print(my_circle.radius)
 except AttributeError as e:
     print("Error:", e)  # Error: 'Circle' object has no attribute '_radius'
+
